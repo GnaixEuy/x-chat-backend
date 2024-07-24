@@ -1,5 +1,6 @@
 package cn.gnaixeuy.xchat.entity;
 
+import cn.gnaixeuy.xchat.enums.Gender;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -51,8 +52,9 @@ public class User extends BaseEntity implements UserDetails {
     @Column(name = "website_url", length = 1024)
     private String websiteUrl;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "gender", length = 12)
-    private String gender;
+    private Gender gender;
 
     @Column(name = "locked", nullable = false)
     private Boolean locked = false;

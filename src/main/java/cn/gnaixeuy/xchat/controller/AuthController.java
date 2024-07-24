@@ -3,6 +3,8 @@ package cn.gnaixeuy.xchat.controller;
 import cn.gnaixeuy.xchat.dto.request.LoginInfoReq;
 import cn.gnaixeuy.xchat.dto.request.RegisterInfoReq;
 import cn.gnaixeuy.xchat.dto.response.ResponseResult;
+import cn.gnaixeuy.xchat.service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = {"/auth"})
 public class AuthController {
 
+    private AuthService authService;
+
     @PostMapping(value = {"/login"})
     public ResponseResult<String> login(@RequestBody LoginInfoReq loginInfoReq) {
 
@@ -33,4 +37,9 @@ public class AuthController {
 
     }
 
+    @Autowired
+    public void setAuthService(AuthService authService) {
+        this.authService = authService;
+    }
+    
 }

@@ -1,9 +1,9 @@
 package cn.gnaixeuy.xchat.handler;
 
 
-import cn.gnaixeuy.xchat.enums.ExceptionType;
 import cn.gnaixeuy.xchat.exception.BizException;
 import cn.gnaixeuy.xchat.exception.ErrorResponse;
+import cn.gnaixeuy.xchat.exception.ExceptionType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;

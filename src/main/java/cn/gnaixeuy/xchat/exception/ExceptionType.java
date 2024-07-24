@@ -1,4 +1,4 @@
-package cn.gnaixeuy.xchat.enums;
+package cn.gnaixeuy.xchat.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

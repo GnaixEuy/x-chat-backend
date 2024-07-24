@@ -1,6 +1,5 @@
 package cn.gnaixeuy.xchat.exception;
 
-import cn.gnaixeuy.xchat.enums.ExceptionType;
 import lombok.Getter;
 
 /**
