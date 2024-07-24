@@ -1,9 +1,9 @@
-package cn.gnaixeuy.easychat.handler;
+package cn.gnaixeuy.xchat.handler;
 
 
-import cn.gnaixeuy.easychat.enums.ExceptionType;
-import cn.gnaixeuy.easychat.exception.BizException;
-import cn.gnaixeuy.easychat.exception.ErrorResponse;
+import cn.gnaixeuy.xchat.enums.ExceptionType;
+import cn.gnaixeuy.xchat.exception.BizException;
+import cn.gnaixeuy.xchat.exception.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * <img src="https://img1.baidu.com/it/u=2537966709,2852517020&fm=253&fmt=auto&app=138&f=JPEG?w=648&h=489"/> <br/>
- * Soda-MusicEntity
+ * x-chatEntity
  *
  * @author GnaixEuy
  * @version 1.0

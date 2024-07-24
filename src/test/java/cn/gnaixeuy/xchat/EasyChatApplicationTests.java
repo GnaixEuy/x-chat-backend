@@ -1,4 +1,4 @@
-package cn.gnaixeuy.easychat;
+package cn.gnaixeuy.xchat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

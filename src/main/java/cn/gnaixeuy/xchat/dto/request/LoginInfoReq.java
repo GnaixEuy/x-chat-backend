@@ -1,8 +1,7 @@
-package cn.gnaixeuy.easychat.exception;
+package cn.gnaixeuy.xchat.dto.request;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * <img src="https://img1.baidu.com/it/u=2537966709,2852517020&fm=253&fmt=auto&app=138&f=JPEG?w=648&h=489"/> <br/>
@@ -13,10 +12,11 @@ import lombok.NoArgsConstructor;
  * @see <a href="https://github.com/GnaixEuy">GnaixEuy</a>
  */
 @Data
-public class ErrorResponse {
+@Accessors(chain = true)
+public class LoginInfoReq {
 
-    private Integer code;
-    private String msg;
-    private Object trace;
+    private String phone;
+    private String email;
+    private String password;
 
 }

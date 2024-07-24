@@ -1,11 +1,11 @@
-package cn.gnaixeuy.easychat.enums;
+package cn.gnaixeuy.xchat.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
  * <img src="https://img1.baidu.com/it/u=2537966709,2852517020&fm=253&fmt=auto&app=138&f=JPEG?w=648&h=489"/> <br/>
- * easy-chat
+ * x-chat
  *
  * @author GnaixEuy
  * @version 1.0
@@ -31,7 +31,7 @@ public enum ExceptionType {
     USER_LOCKED(50001002, "用户被锁定"),
     USER_OPEN_ID_NOT_FOUND(40401003, "未找到openId绑定用户"),
     FILE_NOT_PERMISSION(40303002, "当前用户无权限修改文件");
-    
+
     private final Integer code;
     private final String message;
 

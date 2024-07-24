@@ -18,7 +18,7 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: chat
-      MYSQL_DATABASE: mydatabase
+      MYSQL_DATABASE: x-chat
       MYSQL_USER: chat
       MYSQL_PASSWORD: chat
 

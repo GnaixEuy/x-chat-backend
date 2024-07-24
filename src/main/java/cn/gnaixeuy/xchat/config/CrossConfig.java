@@ -1,4 +1,4 @@
-package cn.gnaixeuy.easychat.config;
+package cn.gnaixeuy.xchat.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +8,7 @@ import org.springframework.web.filter.CorsFilter;
 
 /**
  * <img src="https://img1.baidu.com/it/u=2537966709,2852517020&fm=253&fmt=auto&app=138&f=JPEG?w=648&h=489"/> <br/>
- * Soda-MusicEntity
+ * x-chatEntity
  *
  * @author GnaixEuy
  * @version 1.0

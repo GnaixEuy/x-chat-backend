@@ -1,6 +1,6 @@
 spring:
   application:
-    name: easy-chat
+    name: x-chat
   profiles:
     active: dev
   mvc:
