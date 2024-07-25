@@ -1,4 +1,4 @@
-package cn.gnaixeuy.xchat.dto.response;
+package cn.gnaixeuy.xchat.vo.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -15,6 +15,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @see <a href="https://github.com/GnaixEuy">GnaixEuy</a>
  */
 public interface GeneralService<Entity extends BaseEntity, Dto extends BaseDto> {
+
     JpaRepository<Entity, String> getRepository();
 
     MapperInterface<Entity, Dto> getMapper();
@@ -28,4 +29,5 @@ public interface GeneralService<Entity extends BaseEntity, Dto extends BaseDto> 
     Dto update(String id, Dto dto);
 
     void delete(String id);
+
 }

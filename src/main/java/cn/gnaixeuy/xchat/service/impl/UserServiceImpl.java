@@ -1,6 +1,7 @@
 package cn.gnaixeuy.xchat.service.impl;
 
 import cn.gnaixeuy.xchat.repository.UserRepository;
+import cn.gnaixeuy.xchat.service.BaseService;
 import cn.gnaixeuy.xchat.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends BaseService implements UserService {
 
     private UserRepository userRepository;
 
