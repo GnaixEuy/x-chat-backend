@@ -1,10 +1,13 @@
 package cn.gnaixeuy.xchat.controller;
 
-import cn.gnaixeuy.xchat.dto.request.LoginInfoReq;
-import cn.gnaixeuy.xchat.dto.request.RegisterInfoReq;
+import cn.gnaixeuy.xchat.dto.request.TokenCreateRequest;
+import cn.gnaixeuy.xchat.dto.request.UserCreateRequest;
+import cn.gnaixeuy.xchat.mapper.UserMapper;
 import cn.gnaixeuy.xchat.service.AuthService;
-import cn.gnaixeuy.xchat.vo.response.ResponseResult;
+import cn.gnaixeuy.xchat.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,23 +26,27 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     private AuthService authService;
+    private UserMapper userMapper;
 
-    @PostMapping(value = {"/login"})
-    public ResponseResult<String> login(@RequestBody LoginInfoReq loginInfoReq) {
-
-        return null;
+    @PostMapping(value = {"/tokens"})
+    public String create(@RequestBody TokenCreateRequest tokenCreateRequest) {
+        return this.authService.createToken(tokenCreateRequest);
     }
 
     @PostMapping(value = {"/register"})
-    public ResponseResult<String> register(@RequestBody RegisterInfoReq registerInfoReq) {
-
-        return null;
-
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    UserVo register(@Validated @RequestBody UserCreateRequest userCreateRequest) {
+        return this.userMapper.toVo(this.authService.register(userCreateRequest));
     }
 
     @Autowired
     public void setAuthService(AuthService authService) {
         this.authService = authService;
+    }
+
+    @Autowired
+    public void setUserMapper(UserMapper userMapper) {
+        this.userMapper = userMapper;
     }
 
 }
