@@ -1,5 +1,8 @@
 package cn.gnaixeuy.xchat.service;
 
+import cn.gnaixeuy.xchat.dto.UserDto;
+import cn.gnaixeuy.xchat.dto.request.TokenCreateRequest;
+import cn.gnaixeuy.xchat.dto.request.UserCreateRequest;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
@@ -11,4 +14,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * @see <a href="https://github.com/GnaixEuy">GnaixEuy</a>
  */
 public interface AuthService extends UserDetailsService {
+
+    UserDto register(UserCreateRequest userCreateRequest);
+
+    String createToken(TokenCreateRequest tokenCreateRequest);
+
 }
