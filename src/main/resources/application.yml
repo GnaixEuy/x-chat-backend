@@ -28,6 +28,8 @@ spring:
           max-interval: 3000
 server:
   port: ${SERVER_PORT}
+  servlet:
+    context-path: /api
 tencent:
   message:
     secret-id: ${MESSAGE_TENCENT_SECRET_ID}

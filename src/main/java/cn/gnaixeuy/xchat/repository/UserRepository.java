@@ -27,5 +27,5 @@ public interface UserRepository extends JpaRepository<User, String> {
      * @version 1.0.0
      */
     Optional<User> findByUsername(String username);
-    
+
 }

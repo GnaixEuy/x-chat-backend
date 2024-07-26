@@ -5,6 +5,7 @@ import cn.gnaixeuy.xchat.dto.request.UserCreateRequest;
 import cn.gnaixeuy.xchat.mapper.UserMapper;
 import cn.gnaixeuy.xchat.service.AuthService;
 import cn.gnaixeuy.xchat.vo.UserVo;
+import cn.gnaixeuy.xchat.vo.response.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -29,8 +30,8 @@ public class AuthController {
     private UserMapper userMapper;
 
     @PostMapping(value = {"/tokens"})
-    public String create(@RequestBody TokenCreateRequest tokenCreateRequest) {
-        return this.authService.createToken(tokenCreateRequest);
+    public ResponseResult<String> create(@RequestBody TokenCreateRequest tokenCreateRequest) {
+        return ResponseResult.ok(this.authService.createToken(tokenCreateRequest));
     }
 
     @PostMapping(value = {"/register"})

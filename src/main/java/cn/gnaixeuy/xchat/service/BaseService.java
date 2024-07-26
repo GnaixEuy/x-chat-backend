@@ -22,7 +22,7 @@ import java.util.Optional;
 @Slf4j
 public abstract class BaseService {
 
-    private UserRepository userRepository;
+    UserRepository userRepository;
 
     protected User getCurrentUserEntity() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -32,7 +32,7 @@ public abstract class BaseService {
 
     protected User loadUserByUsername(String username) {
 
-        Optional<User> userEntityOptional = this.userRepository.findByUsername(username);
+        Optional<User> userEntityOptional = userRepository.findByUsername(username);
         if (userEntityOptional.isEmpty()) {
             throw new BizException(ExceptionType.USER_NOT_FOUND);
         }
@@ -48,8 +48,8 @@ public abstract class BaseService {
     }
 
     @Autowired
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public void setUserRepository(UserRepository repository) {
+        this.userRepository = repository;
     }
 
 }

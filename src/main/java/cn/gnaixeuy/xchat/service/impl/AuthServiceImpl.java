@@ -34,20 +34,20 @@ import java.util.Optional;
 @Service
 public class AuthServiceImpl extends BaseService implements AuthService {
 
-    private UserMapper mapper;
-    private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
+    UserMapper userMapper;
+    UserRepository userInfoRepository;
+    PasswordEncoder passwordEncoder;
 
     @Override
     public UserDto register(UserCreateRequest userCreateRequest) {
         this.checkUserName(userCreateRequest.getUsername());
-        User user = this.mapper.createEntity(userCreateRequest);
+        User user = this.userMapper.createEntity(userCreateRequest);
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));
-        return this.mapper.toDto(this.userRepository.save(user));
+        return this.userMapper.toDto(userInfoRepository.save(user));
     }
 
     private void checkUserName(String username) {
-        Optional<User> user = this.userRepository.findByUsername(username);
+        Optional<User> user = userInfoRepository.findByUsername(username);
         if (user.isPresent()) {
             throw new BizException(ExceptionType.USER_NAME_DUPLICATE);
         }
@@ -79,8 +79,8 @@ public class AuthServiceImpl extends BaseService implements AuthService {
     }
 
     @Autowired
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public void setUserInfoRepository(UserRepository userInfoRepository) {
+        this.userInfoRepository = userInfoRepository;
     }
 
     @Autowired
@@ -89,8 +89,8 @@ public class AuthServiceImpl extends BaseService implements AuthService {
     }
 
     @Autowired
-    public void setMapper(UserMapper mapper) {
-        this.mapper = mapper;
+    public void setUserMapper(UserMapper userMapper) {
+        this.userMapper = userMapper;
     }
 
 }

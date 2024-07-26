@@ -14,8 +14,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
@@ -59,7 +57,8 @@ public class SecurityConfig {
                         .requestMatchers(SecurityConfig.PASS_URL)
                         .permitAll()
                         .anyRequest()
-                        .authenticated())
+                        .authenticated()
+                )
                 .headers(httpSecurityHeadersConfigurer -> {
                     httpSecurityHeadersConfigurer.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable);
                 })
@@ -86,19 +85,8 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+        source.registerCorsConfiguration("/static/**", new CorsConfiguration().applyPermitDefaultValues());
         return source;
-    }
-
-
-    /**
-     * 密码明文加密方式配置
-     *
-     * @return BCryptPasswordEncoder密码加密编码器
-     */
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 
     /**
