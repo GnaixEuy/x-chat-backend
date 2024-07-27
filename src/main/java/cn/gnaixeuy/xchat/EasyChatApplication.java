@@ -13,6 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class EasyChatApplication {
 
     public static void main(String[] args) {
+        ImServer.start();
         SpringApplication.run(EasyChatApplication.class, args);
     }
 
