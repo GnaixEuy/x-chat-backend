@@ -1,6 +1,7 @@
 package cn.gnaixeuy.xchat.websocket.netty;
 
 import cn.hutool.core.util.StrUtil;
+import com.auth0.jwt.JWT;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -8,6 +9,8 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 /**
  * <img src="https://img1.baidu.com/it/u=2537966709,2852517020&fm=253&fmt=auto&app=138&f=JPEG?w=648&h=489"/> <br/>
@@ -33,13 +36,20 @@ public class HandlerWebSocket extends SimpleChannelInboundHandler<TextWebSocketF
             String url = ((WebSocketServerProtocolHandler.HandshakeComplete) evt).requestUri();
             String token = getToken(url);
             log.info("token:{}", token);
-            if (token != null) {
+            if (token == null) {
                 ctx.channel().close();
                 return;
             }
             log.info("url:{}", url);
 
-            //todo 校验token是否有效， 改造security机制，引入redis
+            Date expirationTime = JWT.decode(token).getExpiresAt();
+            Date currentTime = new Date();
+            if (currentTime.after(expirationTime)) {
+                log.info("用户:{},token过期", JWT.decode(token).getSubject());
+                ctx.channel().close();
+                return;
+            }
+
         }
 
     }

@@ -17,8 +17,13 @@
     <licenses>
         <license/>
     </licenses>
+
     <developers>
-        <developer/>
+        <developer>
+            <name>GnaixEuy</name>
+            <email>sgghcj@live.com</email>
+            <organizationUrl>https://www.gnaixeuy.cn</organizationUrl>
+        </developer>
     </developers>
     <scm>
         <connection/>
@@ -82,6 +87,14 @@
             <artifactId>mapstruct-processor</artifactId>
             <version>1.4.2.Final</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
